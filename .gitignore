@@ -1,0 +1,45 @@
+# Fichiers Python générés
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environnements virtuels
+.venv/
+env/
+ENV/
+venv/
+
+# Fichiers spécifiques à PDM
+.pdm.toml
+
+# Journaux d'exécution
+*.log
+
+# Dépendances exportées (si utilisées)
+requirements.txt
+
+# Fichiers d'environnement et secrets sensibles
+.env
+.env.*
+secrets.json
+
+# Bases de données locales
+*.sqlite3
+*.db
+
+# Caches et rapports de test
+.coverage
+*.cover
+.hypothesis/
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+
+# Fichiers de configuration des IDE
+.vscode/
+.idea/
+
+# Fichiers système (OS)
+Thumbs.db

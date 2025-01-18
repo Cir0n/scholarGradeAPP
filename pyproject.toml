@@ -1,0 +1,28 @@
+[project]
+name = "Secure_web"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Cir0n", email = "philippe.baba3000@gmail.com"},
+]
+dependencies = ["flask>=3.1.0", "flask-bcrypt>=1.0.1", "flask-mysql>=1.6.0", "flask-login>=0.6.3"]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[dependency-groups]
+dev = [
+    "flake8>=7.1.1",
+    "pytest>=8.3.4",
+]
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "black>=24.3.0",
+    "isort>=5.13.2",
+    "flake8>=7.0.0",
+]
