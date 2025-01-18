@@ -36,9 +36,17 @@ class Database:
     
 
     def get_user_by_username(self, username):
-        connection = self.connect()
-        cursor = connection.cursor()
+        connection = self.connect() 
+        cursor = connection.cursor(dictionary=True)
         cursor.execute("SELECT * FROM users WHERE username=%s", (username,))
+        user = cursor.fetchone()
+        cursor.close()
+        return user
+    
+    def get_user_by_id(self, user_id):
+        connection = self.connect()
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM users WHERE id=%s", (user_id,))
         user = cursor.fetchone()
         cursor.close()
         return user

@@ -12,3 +12,9 @@ def create_user(username, password, role="student"):
 
 def get_all_users():
     return db.get_user()
+
+def get_user_by_username(username):
+    return db.get_user_by_username(username)
+
+def get_user_by_id(user_id):
+    return db.get_user_by_id(user_id)
