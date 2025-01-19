@@ -26,7 +26,7 @@ class Database:
         cursor.close()
         return True
 
-    def get_user(self):
+    def get__all_user(self):
         connection = self.connect()
         cursor = connection.cursor(dictionary=True)
         cursor.execute("SELECT * FROM users")

@@ -39,28 +39,25 @@ def logout():
     return jsonify({"message": "Logged out successfully"}), 200
 
 
-@user_bp.route('/dashboard', methods=['GET'])
-@login_required
-def dashboard():
-    return jsonify({"message": f"Welcome {current_user.username}!"}), 200
-
-
 @user_bp.route("/")
 def home():
     return "Welcome to the Secure Web App!"
 
 
-@user_bp.route("/register", methods=["POST"])
+@user_bp.route("/register", methods=["GET","POST"])
 def register():
-    data = request.json
-    username = data["username"]
-    password = data["password"]
-    role = data.get("role", "student")
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        role = request.form.get("role")
 
-    if create_user(username, password, role):
-        return jsonify({"message": "User created successfully"}), 201
-    else:
-        return jsonify({"message": "Failed to create user"}), 400
+        response_message, success = create_user(username, password, role)
+        if success:
+            return redirect("/login")
+        else:
+            return jsonify({"message": "Failed to create user"}), 400
+        
+    return render_template("register.html")
 
 
 @user_bp.route("/users", methods=["GET"])
